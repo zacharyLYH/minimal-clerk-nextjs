@@ -1,4 +1,9 @@
-import { UserProfile, auth } from "@clerk/nextjs";
+import {
+    OrganizationProfile,
+    OrganizationSwitcher,
+    UserProfile,
+    auth,
+} from "@clerk/nextjs";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { SignOutButton } from "@clerk/nextjs";
@@ -17,9 +22,12 @@ export default function Home() {
             <Link href="/create-org-with-api">Create org with API</Link>
             <Link href="/view-org">View all my org(s)</Link>
             <Link href="/delete-org">Delete org</Link>
-            {/* <Link href="/switch-orgs">Switch org</Link>
-            <Link href="/get-facts">Show facts</Link> */}
+            <Link href="/read-referer">Switch org</Link>
+            {/* <Link href="/get-facts">Show facts</Link> */}
             {/* <UserProfile /> */}
+            {orgId}
+            {/* <OrganizationProfile afterLeaveOrganizationUrl="/api/afterLeaveURLTesting" /> */}
+            <OrganizationSwitcher afterLeaveOrganizationUrl="/api/afterLeaveURLTesting" />
             <SignOutButton />
         </div>
     );
